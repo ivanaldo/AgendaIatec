@@ -1,12 +1,17 @@
-using AgendaIAtec.Models;
+using Agenda.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace AgendaIAtec
+namespace Agenda
 {
     public class Startup
     {
@@ -22,6 +27,13 @@ namespace AgendaIAtec
         {
             services.AddDbContext<Contexto>(opcoes => opcoes.UseSqlServer(Configuration.GetConnectionString("conexaoBD")));
             services.AddControllersWithViews();
+            services.AddAuthentication("identity.login")
+                .AddCookie("identity.login", config => {
+                    config.Cookie.Name = "identity.login";// nome do cooki
+                    config.LoginPath = "/LoginUsuario";//defini o endereço da view de login
+                    config.AccessDeniedPath = "/Login";// redireciona usuario para a home se ele receber acesso negado
+                    config.ExpireTimeSpan = TimeSpan.FromHours(1);//O cooki expira em uma hora
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,7 +53,8 @@ namespace AgendaIAtec
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            //diz ao aspnet core que ele precisa usar a autenticação
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

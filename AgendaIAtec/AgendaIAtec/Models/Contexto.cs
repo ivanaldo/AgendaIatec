@@ -4,15 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AgendaIAtec.Models
+namespace Agenda.Models
 {
     public class Contexto : DbContext
     {
-        public DbSet<Usuario> Cadastro { get; set; }
+        public DbSet<Usuario> UsuarioCadastro { get; set; }
 
         public DbSet<Evento> Evento { get; set; }
 
-        
+        public DbSet<UsuariosEventos> usuariosEventos { get; set; }
 
         public Contexto(DbContextOptions<Contexto> opcoes) : base(opcoes)
         {

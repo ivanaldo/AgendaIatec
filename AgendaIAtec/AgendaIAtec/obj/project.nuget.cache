@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rm9dEONlJLf8Ket+BMbGUBC2N8qD1gIXUCb3iFi1gikRvljI0IPyPHPhEGjiJr3eH2xYDaa6gvHQ3ya8bHCY4g==",
+  "dgSpecHash": "JtYt1wbBHdHz+65sBvJrEHLWUbXB+YKoyuruttqQs+ZURmqrF0psTDy2uUsoIa2FRJtTfVlmu07elqrhO8iwHQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ivana\\source\\repos\\AgendaIAtec\\AgendaIAtec\\AgendaIAtec.csproj",
+  "projectFilePath": "C:\\Users\\ivana\\source\\repos\\Agenda\\Agenda\\Agenda.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ivana\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ivana\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

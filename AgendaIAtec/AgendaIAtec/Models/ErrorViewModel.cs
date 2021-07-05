@@ -1,6 +1,6 @@
 using System;
 
-namespace AgendaIAtec.Models
+namespace Agenda.Models
 {
     public class ErrorViewModel
     {
