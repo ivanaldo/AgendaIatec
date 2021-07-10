@@ -1,0 +1,65 @@
+﻿@model Agenda.Models.Evento
+
+@{
+    ViewData["Title"] = "Criar Evento";
+}
+
+<h1>Criar um novo evento</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CriarEvento">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="tipo" class="control-label"></label>
+                <select asp-for="tipo" class="form-control" asp-items="@ViewBag.TipoEvento"></select>
+                <span asp-validation-for="tipo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="nome" class="control-label"></label>
+                <input asp-for="nome" class="form-control" />
+                <span asp-validation-for="nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="descricao" class="control-label"></label>
+                <input asp-for="descricao" class="form-control" />
+                <span asp-validation-for="descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="data" class="control-label"></label>
+                <input asp-for="data" class="form-control" />
+                <span asp-validation-for="data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="local" class="control-label"></label>
+                <input asp-for="local" class="form-control" />
+                <span asp-validation-for="local" class="text-danger"></span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+</script>
+
+<select style="width:370px" id="Avaliable" name="Avaliable" multiple asp-items="@ViewBag.Usuarios"></select>
+<button id="Adicionar" onclick="Incluir()" class="btn btn-info">Selecionar</button>
+
+<select style="width:370px" id="Accounts" name="Accounts[]" multiple></select>
+<br>
+<button type="submit" onclick="displayResult()" class="btn btn-primary">Criar evento</button>
+<br />
+<br />
+<div class="form-group">
+    <input type="submit" value="Criar evento" class="btn btn-primary" />
+</div>
+<div>
+    <a asp-action="MeusEventos">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

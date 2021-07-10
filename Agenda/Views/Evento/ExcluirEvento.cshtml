@@ -1,0 +1,59 @@
+﻿@model Agenda.Models.Evento
+
+@{
+    ViewData["Title"] = "Excluir Evento";
+}
+
+<h1>Excluir evento</h1>
+
+<h3>Tem certeza que quer apagar esse evento?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tipo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tipo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.descricao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.descricao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.data)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.data)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.local)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.local)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.participantes)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.participantes)
+        </dd>
+    </dl>
+    
+    <form asp-action="ExcluirEvento">
+        <input type="hidden" asp-for="eventoId" />
+        <input type="submit" value="Excluir" class="btn btn-danger" />
+    </form>
+    <br />
+    <div>
+        <a asp-action="Index">Voltar</a>
+     </div>
+</div>

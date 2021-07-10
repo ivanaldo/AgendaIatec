@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Agenda.Models.Evento>
+
+@{
+    ViewData["Title"] = "Eventos";
+}
+
+<h1>Seus eventos</h1>
+
+<p>
+    <a asp-action="Create">Criar novo evento</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.local)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.participantes)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.local)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.participantes)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.eventoId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.eventoId">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.eventoId">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Agenda.Models.Evento>
+
+@{
+    ViewData["Title"] = "Proximo";
+}
+
+<h1>Próximo eventos</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="input-group">
+                <input type="text" class="form-control"> <span class="input-group-btn input-space">
+                    <button class="btn btn-primary" type="button">Buscar por data</button>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="input-group">
+                <input type="text" class="form-control"> <span class="input-group-btn input-space">
+                    <button class="btn btn-primary" type="button">Buscar por nome</button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.data)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tipo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.data)
+                </td>
+                <td>
+                    <a asp-action="DetalhesEvento" asp-route-id="@item.eventoId" class="btn btn-primary">Detalhes</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

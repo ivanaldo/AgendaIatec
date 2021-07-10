@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Agenda.Models.Evento>
+
+@{
+    ViewData["Title"] = "MeusEventos";
+}
+
+<h1>MeusEventos</h1>
+
+<p>
+    <a asp-action="CriarEvento">Criar evento</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.data)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.data)
+            </td>
+            <td>
+                <a asp-action="AtualizarEvento" asp-route-id="@item.eventoId" class="btn btn-primary">Atualizar</a>
+                <a asp-action="DetalhesEvento" asp-route-id="@item.eventoId" class="btn btn-primary">Detalhes</a>
+                <a asp-action="ExcluirEvento" asp-route-id="@item.eventoId" class="btn btn-danger">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

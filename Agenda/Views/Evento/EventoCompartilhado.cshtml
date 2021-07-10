@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Agenda.Models.Evento>
+
+@{
+    ViewData["Title"] = "Evento Compartilhado";
+}
+
+<h1>Evento Compartilhado</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.data)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.data)
+            </td>
+            <td>
+                <a asp-action="DetalhesEvento" asp-route-id="@item.eventoId" class="btn btn-primary">Detalhes</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
